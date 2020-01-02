@@ -1,0 +1,21 @@
+
+# Curl command to test /auth route
+# export TOKEN=`curl -d '{"email":"email@email.com","password":"test"}' -H "Content-Type: application/json" -X POST localhost:80/auth`
+
+# Curl Command to test /contents route
+# curl --request GET 'http://127.0.0.1:80/contents' -H "Authorization: Bearer ${TOKEN}"
+
+
+
+# Docker commands
+
+# Build the container
+# docker build --tag jwt-api-test .
+
+# Run the container
+# docker run --env-file=env_file -p 80:8080 jwt-api-test
+# pull up 'localhost' in browser
+
+# Remove the container
+# docker stop jwt-api-test
+# docker remove jwt-api-test
