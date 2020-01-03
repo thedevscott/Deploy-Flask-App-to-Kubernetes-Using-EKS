@@ -67,6 +67,9 @@ aws iam put-role-policy --role-name CodeBuildKubectlRole --policy-name eks-descr
 aws iam attach-role-policy --role-name CodeBuildKubectlRole --policy-arn arn:aws:iam::aws:policy/CloudWatchLogsFullAccess
 aws iam attach-role-policy --role-name CodeBuildKubectlRole --policy-arn arn:aws:iam::aws:policy/AWSCodeBuildAdminAccess
 
+# Attach the role to the running instance
+Follow instructions: https://eksworkshop.com/020_prerequisites/ec2instance/
+
 # Create patch & open file for update
 '''
 ROLE="    - rolearn: arn:aws:iam::$ACCOUNT_ID:role/CodeBuildKubectlRole\n      username: build\n      groups:\n        - system:masters"
@@ -77,7 +80,7 @@ code /tmp/aws-auth-patch.yml
 
 # In the data/mapRoles section of this document add, replacing <ACCOUNT_ID> with your account id:
 # Only do the following if you didn't use ROLE above, if you did you should see
-this in the aws-auth-patch.yml file
+this in the aws-auth-patch.yml file already
 
 '''
   - rolearn: arn:aws:iam::<ACCOUNT_ID>:role/UdacityFlaskDeployCBKubectlRole
